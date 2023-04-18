@@ -14,7 +14,7 @@ APiece::APiece()
 	PrimaryActorTick.bCanEverTick = true;
 
 	SceneComponent = CreateDefaultSubobject<USceneComponent>("Pieces Scene");   // Crear un componente de escena
-	RootComponent = SceneComponent;                                             // Establecer el componente de escena como el componente ra韟
+	RootComponent = SceneComponent;                                             // Establecer el componente de escena como el componente ra铆z
 
     struct FConstructorStatics  
     {
@@ -30,7 +30,7 @@ APiece::APiece()
         ConstructorHelpers::FObjectFinderOptional<UMaterial> Color_9;
         ConstructorHelpers::FObjectFinderOptional<UMaterial> Color_10;
         ConstructorHelpers::FObjectFinderOptional<UMaterial> Color_11;
-        FConstructorStatics()                                                   // "F" indica que es una estructura de datos de la biblioteca b醩ica de Unreal Engine.
+        FConstructorStatics()                                                   // "F" indica que es una estructura de datos de la biblioteca b谩sica de Unreal Engine.
             : Color_0(TEXT("Material'/Game/Mesh/Material_0.Material_0'"))       // Cargar los materiales del unreal
             , Color_1(TEXT("Material'/Game/Mesh/Material_1.Material_1'"))
             , Color_2(TEXT("Material'/Game/Mesh/Material_2.Material_2'"))
@@ -66,7 +66,7 @@ APiece::APiece()
 void APiece::BeginPlay()
 {
 	Super::BeginPlay();
-    SpawnBlocks();  														  // Llamar a la funci髇 SpawnBlocks
+    SpawnBlocks();  														  // Llamar a la funci贸n SpawnBlocks
 }
 
 // Called every frame
@@ -95,17 +95,18 @@ void APiece::SpawnBlocks()
         {{0.0, 20.0}, {0.0, 10.0}, {10.0, 10.0}, {10.0, 0.0}, {20.0, 0.0}},                                  // Pieza Escalera
         {{0.0, 0.0}, {0.0, 10.0}, {10.0, 10.0}, {10.0, 20.0}, {10.0, 30.0}, {0.0, 30.0}}                     // Pieza Signo de Pregunta 
     };
-    const int Index = FMath::RandRange(7, Shapes.size() - 1);               // Generar un n鷐ero aleatorio entre 0 y el tama駉 de la lista de piezas
-    UE_LOG(LogTemp, Warning, TEXT("index=%d"), Index);  				    // Imprimir el n鷐ero aleatorio generado
-    const std::vector<std::pair<float, float>>& YZs = Shapes[Index];        // Obtener la pieza correspondiente al n鷐ero aleatorio generado
+    const int Index = FMath::RandRange(0, Shapes.size() - 1);               // Generar un n煤mero aleatorio entre 0 y el tama帽o de la lista de piezas
+    //const int Index = FMath::RandRange(7, Shapes.size() - 1);             // Generar un n煤mero aleatorio entre 7 y el tama帽o de la lista de piezas para mostrar las 5 piezas creadas
+    UE_LOG(LogTemp, Warning, TEXT("index=%d"), Index);  				    // Imprimir el n煤mero aleatorio generado
+    const std::vector<std::pair<float, float>>& YZs = Shapes[Index];        // Obtener la pieza correspondiente al n煤mero aleatorio generado
     for (auto&& YZ : YZs)  												    // Iterar sobre la pieza
     {
-        FRotator Rotation(0.0, 0.0, 0.0);  								    // Rotaci髇 de la pieza
+        FRotator Rotation(0.0, 0.0, 0.0);  								    // Rotaci贸n de la pieza
         ABlock* B = GetWorld()->SpawnActor<ABlock>(this->GetActorLocation(), Rotation);  // Instanciar un bloque
         B->BlockMesh->SetMaterial(1, Colors[Index]);  					    // Asignar el material correspondiente al bloque
         Blocks.Add(B);  												    // Agregar el bloque a la lista de bloques
         B->AttachToActor(this, FAttachmentTransformRules::KeepRelativeTransform);  	    // Asignar la pieza como padre del bloque
-        B->SetActorRelativeLocation(FVector(0.0, YZ.first, YZ.second));  	            // Asignar la posici髇 del bloque
+        B->SetActorRelativeLocation(FVector(0.0, YZ.first, YZ.second));  	            // Asignar la posici贸n del bloque
     }
 }
 
@@ -123,27 +124,27 @@ void APiece::DrawDebugLines()
 {
     for (ABlock* B : Blocks)  // Iterar sobre la lista de bloques
     {
-        FVector V1 = B->GetActorLocation();  // Obtener la posici髇 del bloque
-        FVector V2(V1.X, V1.Y, 5.0f);        // Crear un vector con la misma posici髇 en X y Y, pero con una posici髇 en Z mayor
-        DrawDebugLine(GetWorld(), V1, V2, FColor::Green, false, 1, 0, 1);  // Dibujar una l韓ea verde entre los dos vectores
+        FVector V1 = B->GetActorLocation();  // Obtener la posici贸n del bloque
+        FVector V2(V1.X, V1.Y, 5.0f);        // Crear un vector con la misma posici贸n en X y Y, pero con una posici贸n en Z mayor
+        DrawDebugLine(GetWorld(), V1, V2, FColor::Green, false, 1, 0, 1);  // Dibujar una l铆nea verde entre los dos vectores
     }
 }
 
 void APiece::TestRotate()     
 {
-    auto RotateVector = [this](FVector OldVector) {         // Funci髇 lambda que recibe un vector y devuelve otro vector
-        FVector ActorVector = this->GetActorLocation();     // Obtener la posici髇 de la pieza
-        FVector BlockVector = OldVector;  				    // Obtener la posici髇 del bloque
-        FVector TempVector = BlockVector - ActorVector;     // Obtener la diferencia entre la posici髇 del bloque y la posici髇 de la pieza  
-        TempVector = ActorVector + TempVector.RotateAngleAxis(90.0, FVector(1.0, 0.0, 0.0));  // Rotar el vector en 90 grados y sumarlo a la posici髇 de la pieza
+    auto RotateVector = [this](FVector OldVector) {         // Funci贸n lambda que recibe un vector y devuelve otro vector
+        FVector ActorVector = this->GetActorLocation();     // Obtener la posici贸n de la pieza
+        FVector BlockVector = OldVector;  				    // Obtener la posici贸n del bloque
+        FVector TempVector = BlockVector - ActorVector;     // Obtener la diferencia entre la posici贸n del bloque y la posici贸n de la pieza  
+        TempVector = ActorVector + TempVector.RotateAngleAxis(90.0, FVector(1.0, 0.0, 0.0));  // Rotar el vector en 90 grados y sumarlo a la posici贸n de la pieza
         return TempVector;  								// Devolver el vector rotado
     };
 
     if (!CheckWillCollision(RotateVector))                  // Si no hay colision
     {
         UE_LOG(LogTemp, Warning, TEXT("now can rotate"));   // Imprimir un mensaje
-        FRotator NewRotation = this->GetActorRotation() + FRotator(0.0, 0.0, -90.0);  // Obtener la rotaci髇 actual de la pieza y sumarle 90 grados
-        this->SetActorRelativeRotation(NewRotation);                                  // Asignar la rotaci髇 a la pieza
+        FRotator NewRotation = this->GetActorRotation() + FRotator(0.0, 0.0, -90.0);  // Obtener la rotaci贸n actual de la pieza y sumarle 90 grados
+        this->SetActorRelativeRotation(NewRotation);                                  // Asignar la rotaci贸n a la pieza
         /*if (RotateSoundCue)
         {
             UGameplayStatics::PlaySoundAtLocation(GetWorld(), RotateSoundCue, GetActorLocation(), GetActorRotation());
