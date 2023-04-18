@@ -1,0 +1,21 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-TetrisUSFX01-5324.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Users\Legion 5 Pro\OneDrive\Documents\TetrisUSFX01-master\Intermediate\Build\Win64\TetrisUSFX01Editor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
+"C:\Users\Legion 5 Pro\OneDrive\Documents\TetrisUSFX01-master\Intermediate\Build\Win64\UE4Editor\Development\TetrisUSFX01\Block.cpp.obj"
+"C:\Users\Legion 5 Pro\OneDrive\Documents\TetrisUSFX01-master\Intermediate\Build\Win64\UE4Editor\Development\TetrisUSFX01\Board.cpp.obj"
+"C:\Users\Legion 5 Pro\OneDrive\Documents\TetrisUSFX01-master\Intermediate\Build\Win64\UE4Editor\Development\TetrisUSFX01\Piece.cpp.obj"
+"C:\Users\Legion 5 Pro\OneDrive\Documents\TetrisUSFX01-master\Intermediate\Build\Win64\UE4Editor\Development\TetrisUSFX01\TetrisUSFX01.cpp.obj"
+"C:\Users\Legion 5 Pro\OneDrive\Documents\TetrisUSFX01-master\Intermediate\Build\Win64\UE4Editor\Development\TetrisUSFX01\TetrisUSFX01GameModeBase.cpp.obj"
+"C:\Users\Legion 5 Pro\OneDrive\Documents\TetrisUSFX01-master\Intermediate\Build\Win64\UE4Editor\Development\TetrisUSFX01\Block.gen.cpp.obj"
+"C:\Users\Legion 5 Pro\OneDrive\Documents\TetrisUSFX01-master\Intermediate\Build\Win64\UE4Editor\Development\TetrisUSFX01\Board.gen.cpp.obj"
+"C:\Users\Legion 5 Pro\OneDrive\Documents\TetrisUSFX01-master\Intermediate\Build\Win64\UE4Editor\Development\TetrisUSFX01\Piece.gen.cpp.obj"
+"C:\Users\Legion 5 Pro\OneDrive\Documents\TetrisUSFX01-master\Intermediate\Build\Win64\UE4Editor\Development\TetrisUSFX01\TetrisUSFX01.init.gen.cpp.obj"
+"C:\Users\Legion 5 Pro\OneDrive\Documents\TetrisUSFX01-master\Intermediate\Build\Win64\UE4Editor\Development\TetrisUSFX01\TetrisUSFX01GameModeBase.gen.cpp.obj"
+"C:\Users\Legion 5 Pro\OneDrive\Documents\TetrisUSFX01-master\Intermediate\Build\Win64\UE4Editor\Development\TetrisUSFX01\Default.rc2.res"
+/OUT:"C:\Users\Legion 5 Pro\OneDrive\Documents\TetrisUSFX01-master\Intermediate\Build\Win64\UE4Editor\Development\TetrisUSFX01\UE4Editor-TetrisUSFX01-5324.lib"
